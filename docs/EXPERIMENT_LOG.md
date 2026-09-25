@@ -1,6 +1,6 @@
 # Experiment Log
 
-No experiments have been run yet. This file defines the record required for each future run; blank fields below are a schema, not measured results.
+The blank fields below define the record required for future runs.
 
 ## Fixed project controls
 
@@ -59,3 +59,13 @@ Compare model changes on the same fixed split and candidate-evaluation definitio
 
 Public leaderboard results, if later supplied by the user, must be recorded separately and must not be presented as a reliable private-leaderboard estimate.
 
+## Stage 3B bounded pilot — 2026-09-26
+
+- Status: completed once; rules only, 100 S1 and 10,000 sampled S2/S3 targets, one CPU thread.
+- Tests: 14 passed in 0.021 s.
+- Reads: two ground-truth scans and one scan each of S1, S2, and S3 (five complete TSV scans total).
+- Retrieval: 194/194 true links, 50/50 non-singleton S1 with all truth retained; all 14 Stage 3A misses recovered and no Stage 3A hit lost.
+- Candidate load: 35,505 pairs; mean 355.05, median 331, p95 815.15, max 960 per S1; sample-conditioned reduction ratio 0.92899.
+- Leakage audit: zero validation-owned targets labeled as training negatives; 83 such candidates ignored.
+- Resources: 453.826 s wall, 421.594 s CPU, 128,176,128-byte peak working set, 764,340 bytes written to ignored pilot/run directories.
+- Decision: stop after the approved pilot. Recall gates passed, but runtime did not improve over Stage 3A and candidate volume increased; no full-data scaling is approved.

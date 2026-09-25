@@ -53,6 +53,8 @@ def blocking_keys(name, address):
     for token in tokens(address):
         if token.isdigit() and len(token) >= 3:
             result.add(f"ad:{token}")
+        elif len(token) >= 5:
+            result.update((f"at:{token}", f"ap:{token[:4]}"))
     signature = simhash(name_norm)
     for band in range(4):
         result.add(f"sh{band}:{(signature >> (band * 16)) & 0xffff:04x}")
