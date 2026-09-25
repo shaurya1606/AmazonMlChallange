@@ -1,0 +1,58 @@
+# Supplied large data must remain local and immutable.
+dataset/
+
+# Generated data and submission artifacts.
+artifacts/
+output/
+submission/
+*.zip
+*.7z
+*.tar
+*.tar.gz
+
+# Per-run large files; keep experiments/README.md and committed small manifests.
+experiments/runs/
+experiments/**/*.parquet
+experiments/**/*.pkl
+experiments/**/*.joblib
+experiments/**/*.npy
+experiments/**/*.npz
+
+# Models, indexes, caches, and local databases.
+*.model
+*.bin
+*.index
+*.faiss
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+cache/
+.cache/
+
+# Python environments and caches.
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Secrets and local environment files.
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials*
+secrets*
+
+# OS/editor files.
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+

@@ -1,0 +1,4 @@
+# Stage 2 scaffold: no third-party packages have been installed or approved.
+# Target interpreter: Python 3.12.x.
+# Add exact tested pins only after dependency installation is explicitly approved.
+

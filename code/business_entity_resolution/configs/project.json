@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "python_version": "3.12",
+  "random_seed": 20260925,
+  "validation": {
+    "fraction": 0.2,
+    "unit": "source1_entity_id",
+    "strata": [
+      "country",
+      "is_singleton"
+    ],
+    "assignment": "Within each stratum, sort S1 IDs by SHA-256(seed + NUL + source1_entity_id), then by source1_entity_id; assign floor(0.2 * stratum_size + 0.5) records to validation and the remainder to training.",
+    "positive_target_rule": "Each labeled S2/S3 target inherits its owning S1 partition.",
+    "unmatched_target_rule": "Within each source and country, deterministically hash-order unmatched target IDs and assign 20 percent to validation using the same rounding rule.",
+    "leakage_rule": "Validation-owned positive targets are excluded from training candidates, negatives, hard-negative mining, fitting, and threshold selection."
+  },
+  "country_policy": "open_set_string",
+  "output_encoding": "utf-8",
+  "output_delimiter": "tab"
+}
+
