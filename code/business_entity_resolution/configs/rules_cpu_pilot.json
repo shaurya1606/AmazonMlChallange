@@ -1,0 +1,16 @@
+{
+  "stage": "a",
+  "seed": 20260925,
+  "s1_total": 100,
+  "per_stratum": 25,
+  "fit": 80,
+  "calibration": 10,
+  "holdout": 10,
+  "target_total": 10000,
+  "other_owned": 4500,
+  "probe_per_bucket": 8000,
+  "max_posting": 500,
+  "threads": 1,
+  "max_memory_gib": 5.5,
+  "max_runtime_minutes": 15
+}
