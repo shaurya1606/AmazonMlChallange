@@ -4,6 +4,7 @@ dataset/
 # Generated data and submission artifacts.
 artifacts/
 output/
+results/
 submission/
 *.zip
 *.7z
@@ -55,4 +56,3 @@ secrets*
 Thumbs.db
 .idea/
 .vscode/
-

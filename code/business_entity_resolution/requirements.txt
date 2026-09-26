@@ -1,2 +1,2 @@
-# Stage 3A uses only the Python 3.12 standard library.
+# The submitted exact-signature baseline uses only the Python 3.12 standard library.
 # No third-party package is required or approved.

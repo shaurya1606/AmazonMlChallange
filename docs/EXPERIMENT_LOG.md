@@ -73,3 +73,11 @@ Public leaderboard results, if later supplied by the user, must be recorded sepa
 ## Exact-signature local submission — 2026-09-26
 
 - Completed a one-thread, disk-partitioned exact `(country, normalized name, normalized address)` test run: 1,732,544 S1 rows, 84,062 candidate/match links, 569.4 s wall time, 73,990,144-byte peak working set, 1,107,184,073 partition bytes, and 50,140,264 output bytes. The supplied validator passed; an independent streaming check confirmed all 259,452 France rows, match/candidate subset integrity, and zero unknown target IDs. This is a precision-first fallback with intentionally limited recall under noisy name/address variants.
+
+## Submission-readiness audit — 2026-09-26
+
+- Revalidated the saved exact-signature outputs without regeneration: supplied validator PASS,
+  23/23 lightweight tests PASS, and independent streaming audit PASS for coverage, target IDs,
+  France rows, and match/candidate containment. Pre/post SHA-256 hashes were identical. Prepared
+  and locally verified the required zip structure; matching accuracy and macro F0.5 remain
+  unmeasured.

@@ -10,20 +10,17 @@ Current status: a standard-library, rules-only exact-signature baseline has prod
 - Default seed: `20260925`
 - Input data remains outside this directory under the workspace `dataset/` tree.
 
-## Planned source responsibilities
+## Source responsibilities
 
-Future Stage 3 implementation will place modules under `src/business_entity_resolution/` for:
+Modules under `src/business_entity_resolution/` provide:
 
 - Input/schema validation and chunked TSV reading
 - Deterministic split construction
 - Text normalization
 - Candidate generation
-- Pair feature construction
-- Matching model training/scoring
+- Exact-signature joining and output construction
 - Per-entity evaluation
 - Output writing and independent validation
-
-Exact commands will be documented only after they exist and have been executed successfully.
 
 ## Reproduce the exact-signature submission
 
@@ -37,6 +34,11 @@ python -m business_entity_resolution.verify
 ```
 
 The pipeline uses 64 on-disk hash partitions and exact normalized country, name, and address equality. It writes one row for every test S1, including France and empty-match cases. Generated partitions and outputs are outside this code directory and are excluded from Git.
+
+The full recorded run used Python 3.12.10, one process, 569.4 seconds wall time,
+73,990,144 bytes peak working set, and 1,107,184,073 bytes of temporary partitions.
+No third-party dependencies, learned model, or pretrained model are used. Validation confirms
+format and referential integrity only; matching accuracy and leaderboard F0.5 are not measured.
 
 ## Reproducibility contract
 
