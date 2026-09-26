@@ -1,0 +1,7 @@
+{
+  "strategy": "exact_normalized_country_name_address",
+  "bucket_count": 64,
+  "max_memory_gib": 6.0,
+  "max_runtime_hours": 4,
+  "min_free_disk_gib": 20
+}

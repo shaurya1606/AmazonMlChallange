@@ -1,0 +1,13 @@
+{
+  "stage": "c1d",
+  "seed": 20260925,
+  "query_count": 10,
+  "max_posting": 500,
+  "max_rescue_candidates_per_query": 10000,
+  "max_candidates_per_query": 100000,
+  "threads": 1,
+  "max_memory_gib": 1.0,
+  "max_runtime_minutes": 15,
+  "work_deadline_seconds": 870,
+  "max_artifact_mib": 100
+}

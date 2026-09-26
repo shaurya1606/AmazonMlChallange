@@ -69,3 +69,7 @@ Public leaderboard results, if later supplied by the user, must be recorded sepa
 - Leakage audit: zero validation-owned targets labeled as training negatives; 83 such candidates ignored.
 - Resources: 453.826 s wall, 421.594 s CPU, 128,176,128-byte peak working set, 764,340 bytes written to ignored pilot/run directories.
 - Decision: stop after the approved pilot. Recall gates passed, but runtime did not improve over Stage 3A and candidate volume increased; no full-data scaling is approved.
+
+## Exact-signature local submission — 2026-09-26
+
+- Completed a one-thread, disk-partitioned exact `(country, normalized name, normalized address)` test run: 1,732,544 S1 rows, 84,062 candidate/match links, 569.4 s wall time, 73,990,144-byte peak working set, 1,107,184,073 partition bytes, and 50,140,264 output bytes. The supplied validator passed; an independent streaming check confirmed all 259,452 France rows, match/candidate subset integrity, and zero unknown target IDs. This is a precision-first fallback with intentionally limited recall under noisy name/address variants.

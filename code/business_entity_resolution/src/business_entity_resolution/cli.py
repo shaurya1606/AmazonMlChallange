@@ -180,8 +180,16 @@ def run(config_path, memory_gib, runtime_minutes, threads):
 
 def main():
     parser = argparse.ArgumentParser(); sub = parser.add_subparsers(dest="command", required=True); pilot = sub.add_parser("pilot")
-    pilot.add_argument("--config", type=Path, required=True); pilot.add_argument("--stage", choices=["b"], required=True); pilot.add_argument("--max-memory-gib", type=float, required=True); pilot.add_argument("--max-runtime-minutes", type=float, required=True); pilot.add_argument("--threads", type=int, required=True)
+    pilot.add_argument("--config", type=Path, required=True); pilot.add_argument("--stage", choices=["b", "c1d"], required=True); pilot.add_argument("--max-memory-gib", type=float, required=True); pilot.add_argument("--max-runtime-minutes", type=float, required=True); pilot.add_argument("--threads", type=int, required=True)
+    submission = sub.add_parser("submission")
+    submission.add_argument("--config", type=Path, required=True); submission.add_argument("--mode", choices=["smoke", "full"], required=True); submission.add_argument("--row-limit", type=int)
     args = parser.parse_args()
+    if args.command == "submission":
+        from .submission import run as run_submission
+        return run_submission(args.config.resolve(), args.mode, args.row_limit)
+    if args.stage == "c1d":
+        from .stage_c import run as run_stage_c
+        return run_stage_c(args.config.resolve(), args.max_memory_gib, args.max_runtime_minutes, args.threads)
     return run(args.config.resolve(), args.max_memory_gib, args.max_runtime_minutes, args.threads)
 
 
